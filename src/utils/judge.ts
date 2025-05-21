@@ -19,3 +19,9 @@ export const calculateWinner = (squares: (squareType | null)[]) => {
   }
   return null;
 };
+
+export const isDraw = (squares: (squareType | null)[]) => {
+  return (
+    calculateWinner(squares) === null && squares.every((cell) => cell !== null)
+  );
+};

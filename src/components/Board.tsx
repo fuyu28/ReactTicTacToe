@@ -1,4 +1,4 @@
-import { calculateWinner } from "../utils/judge";
+import { calculateWinner, isDraw } from "../utils/judge";
 import Square from "./Square";
 import type { squareType } from "../types/squares";
 import "../tailwind.css";
@@ -23,6 +23,8 @@ const Board = ({ xIsNext, squares, onPlay }: BoardProps) => {
   let status;
   if (winner) {
     status = `Winner: ${winner}`;
+  } else if (isDraw(squares)) {
+    status = "Even";
   } else {
     status = `Next player: ${xIsNext ? "X" : "O"}`;
   }
